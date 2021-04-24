@@ -1,16 +1,24 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { makeStyles, useTheme, fade } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import store from '../../store'
 import Info from '../../assests/info.jpg'
 import Scholar from '../../assests/scholar.jpg'
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import Select from '@material-ui/core/Select';
 import ButtonBase from '@material-ui/core/ButtonBase'
+import InputBase from '@material-ui/core/InputBase';
+import FormControl from '@material-ui/core/FormControl';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import SearchIcon from '@material-ui/icons/Search';
+import SingleLineGridList from '../gridList'
 
 import { logoutUser } from '../../actions/authActions'
 
@@ -78,6 +86,35 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
     overflow: 'hidden',
     width: '100%',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    background: 'cornflowerblue',
+    borderRadius: '6px',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }))
 
@@ -153,7 +190,61 @@ const Dashboard = () => {
         </Grid>
 
         <Grid item lg={9} md={9} className={classes.detailGrid}>
-          <Button onClick={onLogoutClick}>Logout</Button>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
+          <Grid item>
+
+        {[1,2,3].map((i)=>(
+          <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="grouped-select">Pricing</InputLabel>
+        <Select defaultValue="" id="grouped-select">
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <ListSubheader>Category 1</ListSubheader>
+          <MenuItem value={1}>Option 1</MenuItem>
+          <MenuItem value={2}>Option 2</MenuItem>
+          <ListSubheader>Category 2</ListSubheader>
+          <MenuItem value={3}>Option 3</MenuItem>
+          <MenuItem value={4}>Option 4</MenuItem>
+        </Select>
+      </FormControl>
+        ))}
+
+
+          </Grid>
+          <Grid item>
+          <Button style={{  background: 'white', border: '2px solid blue',marginLeft: '-35%'}} onClick={onLogoutClick}>Logout</Button>
+          </Grid>
+          </Grid>
+        <Grid container >
+
+          <Grid item md={12} lg={12}>
+
+        <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              style={{width: '80%', marginLeft: '8%'}}
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          </Grid>
+
+
+          <b>What our Learners has to say</b>
+       < SingleLineGridList />
+          </Grid>
         </Grid>
       </Grid>
     </div>
