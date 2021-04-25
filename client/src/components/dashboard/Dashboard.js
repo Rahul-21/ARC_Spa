@@ -6,6 +6,7 @@ import store from '../../store'
 import Info from '../../assests/info.jpg'
 import Scholar from '../../assests/scholar.jpg'
 import Sky from '../../assests/sky.jpg'
+import Link from '@material-ui/core/Link';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -227,7 +228,12 @@ const Dashboard = () => {
           </Grid>
         <Grid container >
 
-          <Grid item md={12} lg={12}>
+        <Grid item lg={12} md={12} style={{height: '10vh', marginTop:'4%'}}>
+            <b>Search for the Top Courses in India</b>
+            <p>Search for the best Courses in India according to your ease. Type the Name of the College or your Specialization.</p>
+          </Grid>
+
+          <Grid item md={12} lg={12} style={{marginBottom: '4%'}}>
 
         <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -255,7 +261,32 @@ const Dashboard = () => {
         <Grid item lg={3}>
           <img src={Sky}></img>
         </Grid>
-        <Grid item lg={6}></Grid>
+        <Grid item lg={6} style={{display: 'flex'}}>
+          <div style={{margin: '2%'}}>
+            <Link underline="always">Our Products</Link>
+            <ul>Product 1</ul>
+            <ul>Product 2</ul>
+            <ul>Product 3</ul>
+            <ul>Product 4</ul>
+
+          </div>
+          <div style={{margin: '2%'}}>
+            <Link underline="always">About Company</Link>
+            <ul>About Us</ul>
+            <ul>Terms and Conditions</ul>
+            <ul>Privacy Policy</ul>
+            <ul>Refund Policy</ul>
+
+          </div>
+
+          <div style={{margin: '2%'}}>
+            <b>Sunscribe to our Newsletter</b> <br />
+          
+            <Link underline="always">Contact Us</Link>
+          </div>
+
+
+        </Grid>
         <Grid item lg={3} style={{padding: '50px'}}>
          <div style={{    marginBottom: '6%'}}> <b style={{  textDecoration: 'underline'}}>Follow Us</b><br/> </div> 
         <Badge badgeContent={4} color="primary">
