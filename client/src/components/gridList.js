@@ -17,9 +17,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    margin:'2%',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: 'lightgrey !important'
   },
   gridList: {
     flexWrap: 'nowrap',
@@ -35,23 +36,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
 export default function SingleLineGridList() {
   const classes = useStyles();
 

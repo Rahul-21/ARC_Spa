@@ -5,12 +5,15 @@ import Button from '@material-ui/core/Button'
 import store from '../../store'
 import Info from '../../assests/info.jpg'
 import Scholar from '../../assests/scholar.jpg'
+import Sky from '../../assests/sky.jpg'
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Select from '@material-ui/core/Select';
 import ButtonBase from '@material-ui/core/ButtonBase'
 import InputBase from '@material-ui/core/InputBase';
+import Badge from '@material-ui/core/Badge';
+import MailIcon from '@material-ui/icons/Mail';
 import FormControl from '@material-ui/core/FormControl';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
@@ -98,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
+    margin: '2%',
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -247,6 +251,25 @@ const Dashboard = () => {
           </Grid>
         </Grid>
       </Grid>
+      <Grid container spacing={1}>
+        <Grid item lg={3}>
+          <img src={Sky}></img>
+        </Grid>
+        <Grid item lg={6}></Grid>
+        <Grid item lg={3} style={{padding: '50px'}}>
+         <div style={{    marginBottom: '6%'}}> <b style={{  textDecoration: 'underline'}}>Follow Us</b><br/> </div> 
+        <Badge badgeContent={4} color="primary">
+        <MailIcon />
+      </Badge>
+      <Badge badgeContent={4} color="secondary">
+        <MailIcon />
+      </Badge>
+      <Badge badgeContent={4} color="error">
+        <MailIcon />
+      </Badge>
+        </Grid>
+        </Grid>
+    
     </div>
   )
 }
